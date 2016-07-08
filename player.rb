@@ -8,10 +8,10 @@ class Player
   end
 
   def calculate_total
-    if hand.empty?
-      total = 0
+    if self.hand.empty?
+      self.total = 0
     else
-      hand.inject(0){ |sum, card|
+      self.hand.inject(0){ |sum, card|
         value = 0
         #Face cards count as 10
         if card.val == "J" || card.val == "Q" || card.val == "K"
@@ -30,5 +30,5 @@ class Player
       }
     end
   end
-  
+
 end
