@@ -1,3 +1,4 @@
+# Class structure for card, it has a numeric value and a suit
 class Card
   attr_reader :val, :suit
   attr_accessor :val, :suit
