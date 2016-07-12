@@ -8,19 +8,23 @@ class Player
     @total = calculate_total
   end
 
+  def get_card_val(sum, card)
+    # Face cards count as 10
+    if %w(J K Q).include?(card.val)
+      10
+    # Ace should count as 1 or 11
+    elsif card.val == 'A' && sum + 11 >= 21
+      1
+    elsif card.val == 'A' && sum + 11 < 21
+      11
+    else
+      card.val.to_i
+    end
+  end
+
   def calculate_total
     hand.inject(0) do |sum, card|
-      # Face cards count as 10
-      if card.val == 'J' || card.val == 'Q' || card.val == 'K'
-        sum + 10
-      # Ace should count as 1 or 11
-      elsif card.val == 'A' && sum + 11 >= 21
-        sum + 1
-      elsif card.val == 'A' && sum + 11 < 21
-        sum + 11
-      else
-        sum + card.val.to_i
-      end
+      sum + get_card_val(sum, card)
     end
   end
 end
