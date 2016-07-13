@@ -1,5 +1,4 @@
-$LOAD_PATH << '.'
-require 'card'
+require_relative 'card'
 
 # Class structure for Deck, which is a collection of cards
 class Deck

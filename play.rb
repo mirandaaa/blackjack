@@ -1,7 +1,6 @@
-$LOAD_PATH << '.'
-require 'deck'
-require 'dealer'
-require 'player'
+require_relative 'deck'
+require_relative 'dealer'
+require_relative 'player'
 
 def check_bust(player, dealer)
   if player.total > 21
