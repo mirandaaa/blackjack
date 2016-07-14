@@ -12,7 +12,7 @@ class Card
     if %w(J K Q).include?(@val)
       10
     # Ace should count as 1 or 11
-    elsif @val == 'A' && sum + 11 >= 21
+    elsif @val == 'A' && sum + 11 > 21
       1
     elsif @val == 'A' && sum + 11 < 21
       11
