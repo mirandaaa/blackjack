@@ -36,11 +36,11 @@ deck = Deck.new
 
 p1 = Player.new
 p1.hand = [deck.draw, deck.draw]
-p1.total = p1.calculate_total
+p1.total
 
 dealer = Dealer.new
 dealer.hand = [deck.draw, deck.draw]
-dealer.total = dealer.calculate_total
+dealer.total
 
 puts 'Cards in your hand: '
 puts p1.hand.each(&:to_s)
@@ -63,7 +63,6 @@ until user_response.casecmp('stand') == 0
     puts 'You hit!'
     p1.hand << deck.draw
     card_num += 1
-    p1.total = p1.calculate_total
     puts 'Cards in your hand: '
     puts p1.hand.each(&:to_s)
     puts "Your total is: #{p1.total}"
@@ -89,8 +88,6 @@ while dealer.move?
 
   puts 'The dealer has: '
   puts dealer.hand.each(&:to_s)
-
-  dealer.total = dealer.calculate_total
   check_bust(p1, dealer)
 end
 
