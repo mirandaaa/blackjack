@@ -2,25 +2,6 @@ require_relative 'deck'
 require_relative 'dealer'
 require_relative 'player'
 
-def check_bust(player)
-  player.busted?
-end
-
-def check_win(player, dealer)
-  d = 21 - dealer.total # How close dealer total is to 21
-  pl = 21 - player.total # How close player total is to 21
-  puts 'TIE GAME!' if d == pl
-  puts 'DEALER WINS! '\
-  "Player total: #{player.total}, Dealer total: #{dealer.total}" if d < pl
-  puts 'PLAYER WINS! '\
-  "Player total: #{player.total}, Dealer total: #{dealer.total}" if d > pl
-end
-
-def end_game
-  puts 'Thanks for playing! Seeya next time'
-  exit!
-end
-
 def play_player_hand(p1, deck)
   user_response = ''
   # Continue asking until player stands
@@ -65,6 +46,25 @@ def play_dealer_hand(dealer, deck)
     end
   end
   puts 'Dealer stands!'
+end
+
+def check_bust(player)
+  player.busted?
+end
+
+def check_win(player, dealer)
+  d = 21 - dealer.total # How close dealer total is to 21
+  pl = 21 - player.total # How close player total is to 21
+  puts 'TIE GAME!' if d == pl
+  puts 'DEALER WINS! '\
+  "Player total: #{player.total}, Dealer total: #{dealer.total}" if d < pl
+  puts 'PLAYER WINS! '\
+  "Player total: #{player.total}, Dealer total: #{dealer.total}" if d > pl
+end
+
+def end_game
+  puts 'Thanks for playing! Seeya next time'
+  exit!
 end
 
 def play_game(player, dealer, deck)
