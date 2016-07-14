@@ -35,11 +35,11 @@ puts 'Welcome to Blackjack!'
 deck = Deck.new
 
 p1 = Player.new
-p1.hand = [deck.draw, deck.draw]
+p1.hand = [deck.draw!, deck.draw!]
 p1.total
 
 dealer = Dealer.new
-dealer.hand = [deck.draw, deck.draw]
+dealer.hand = [deck.draw!, deck.draw!]
 dealer.total
 
 puts 'Cards in your hand: '
@@ -61,7 +61,7 @@ until user_response.casecmp('stand') == 0
 
   if user_response.casecmp('hit') == 0
     puts 'You hit!'
-    p1.hand << deck.draw
+    p1.hit!(deck.draw!)
     card_num += 1
     puts 'Cards in your hand: '
     puts p1.hand.each(&:to_s)
@@ -83,7 +83,7 @@ puts dealer.hand.each(&:to_s)
 
 while dealer.move?
   puts 'Dealer hits!'
-  dealer.hand << deck.draw
+  dealer.hit!(deck.draw!)
   card_num += 1
 
   puts 'The dealer has: '

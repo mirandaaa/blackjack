@@ -6,6 +6,10 @@ class Player
     @hand = []
   end
 
+  def hit!(card)
+    hand << card
+  end
+
   def total
     # Always calculate Aces last
     sort_hand

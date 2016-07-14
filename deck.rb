@@ -18,7 +18,7 @@ class Deck
     @deck.shuffle!
   end
 
-  def draw
+  def draw!
     @deck.shift
   end
 
