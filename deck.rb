@@ -12,7 +12,6 @@ class Deck
     diamonds = "\u2666".encode('utf-8')
     suits = [hearts, spades, clubs, diamonds]
     nums = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A']
-    @deck = []
     populate_deck(nums, suits)
 
     # Shuffle the deck
