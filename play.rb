@@ -15,7 +15,7 @@ def play_player_hand(p1, deck)
       puts 'Cards in your hand: '
       puts p1.hand.each(&:to_s)
       puts "Your total is: #{p1.total}"
-      if check_bust(p1)
+      if p1.busted?
         puts 'PLAYER BUST!!! Dealer wins!'
         end_game
       end
@@ -40,16 +40,12 @@ def play_dealer_hand(dealer, deck)
     dealer.hit!(deck.draw!)
     puts 'The dealer has: '
     puts dealer.hand.each(&:to_s)
-    if check_bust(dealer)
+    if dealer.busted?
       puts 'DEALER BUST!!! Player wins!'
       end_game
     end
   end
   puts 'Dealer stands!'
-end
-
-def check_bust(player)
-  player.busted?
 end
 
 def check_win(player, dealer)
