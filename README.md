@@ -1,2 +1,6 @@
 # blackjack
-This is my little command line blackjack game. 
+I created a small blackjack command line application. Run play.rb to start the game.
+
+There are five separate files. Play.rb is the main file, which performs the game logic and takes user input. Card.rb is a class for cards which have suits and values. Deck.rb is a collection of Cards and does the set up with suits (using the symbols) and numbers, as well as shuffles. Player.rb is specific to a blackjack player, keeping track of their hand and the total value of their hand. It includes a method that calculates the total of their hand, which must be run after each "hit" because the Ace value changes depending on whether or not counting that Ace as an 11 would make the player bust. Dealer.rb inherits from the Player class, as they are the same kind, only Dealer has an extra rule - they must hit until their hand totals 17.
+
+This game only includes hit and stand as possible player actions. A deck is created with 52 cards of each suit and number, and then shuffled. The player gets two cards and the dealer gets two cards, only one of which is revealed to the player. Then the player is asked if they want to hit or stand until they either stand or bust. If they do not bust (which results in a dealer win), the dealer gets to do their turn. The dealer first reveals their top card and then decides whether to hit or stand. The game ends when the dealer stands or the dealer busts. Then the game sees who is the winner based on whether the player or the dealer has a total hand value closer to 21.
